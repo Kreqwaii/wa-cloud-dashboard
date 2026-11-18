@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudPulse WA - WhatsApp Business Cloud API Dashboard</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2315803D'%3E%3Crect width='24' height='24' rx='6'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-mark">
+          <svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">CloudPulse WA</span>
+          <span class="brand-status">Meta Cloud API v21.0</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Primary navigation">
+        <button class="nav-item is-active" type="button" data-tab="campaigns">
+          <svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 2L11 13"/>
+            <path d="M22 2l-7 20-4-9-9-4 20-7z"/>
+          </svg>
+          <span>Campaigns</span>
+        </button>
+
+        <button class="nav-item" type="button" data-tab="contacts">
+          <svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <span>Contacts</span>
+        </button>
+
+        <button class="nav-item" type="button" data-tab="templates">
+          <svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+          <span>Templates</span>
+        </button>
+
+        <button class="nav-item" type="button" data-tab="inbox">
+          <svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          <span>Inbox</span>
+        </button>
+
+        <button class="nav-item" type="button" data-tab="settings">
+          <svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+          <span>Settings</span>
+        </button>
+      </nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="topbar">
+        <h1 id="page-title">Campaigns</h1>
+        <div class="topbar-actions">
+          <span class="quota-pill tabular">Messaging limit: 10,000 / 24h</span>
+          <button id="btn-new-campaign" class="btn btn-primary" type="button">
+            <svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="12" y1="5" x2="12" y2="19"/>
+              <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+            <span>New campaign</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="content-area">
+        <section class="tab-panel is-active" id="tab-campaigns">
+          <div class="metrics-row">
+            <div class="metric-box">
+              <span class="metric-label">Sent</span>
+              <span id="stat-sent" class="metric-value tabular">0</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">Delivered</span>
+              <span id="stat-delivered" class="metric-value tabular">0</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">Read rate</span>
+              <span id="stat-read" class="metric-value tabular">0%</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">Replies</span>
+              <span id="stat-replies" class="metric-value tabular">0</span>
+            </div>
+          </div>
+
+          <div id="campaign-modal" class="panel-drawer" hidden>
+            <div class="drawer-header">
+              <h2>Create broadcast campaign</h2>
+            </div>
+            <div class="drawer-grid">
+              <div class="field-group">
+                <label for="camp-name">Campaign name</label>
+                <input id="camp-name" type="text" placeholder="Q2 Priority Restock">
+              </div>
+              <div class="field-group">
+                <label for="camp-segment">Audience segment</label>
+                <select id="camp-segment">
+                  <option value="All opted-in (1,420)">All opted-in (1,420)</option>
+                  <option value="VIP Repeat Buyers (318)">VIP Repeat Buyers (318)</option>
+                  <option value="Q4 Leads (640)">Q4 Leads (640)</option>
+                </select>
+              </div>
+              <div class="field-group">
+                <label for="camp-template">Approved template</label>
+                <select id="camp-template">
+                  <option value="order_dispatch_v2">order_dispatch_v2</option>
+                  <option value="seasonal_restock_en">seasonal_restock_en</option>
+                  <option value="appointment_reminder">appointment_reminder</option>
+                </select>
+              </div>
+              <div class="field-group">
+                <label for="camp-schedule">Schedule (UTC)</label>
+                <input id="camp-schedule" type="datetime-local">
+              </div>
+            </div>
+            <div class="drawer-actions">
+              <button id="camp-cancel" class="btn btn-ghost" type="button">Cancel</button>
+              <button id="camp-submit" class="btn btn-primary" type="button">Launch campaign</button>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Campaign</th>
+                  <th>Template</th>
+                  <th>Audience</th>
+                  <th>Scheduled (UTC)</th>
+                  <th>Delivery funnel</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="campaigns-tbody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="tab-panel" id="tab-contacts">
+          <div class="toolbar">
+            <div class="toolbar-left">
+              <input id="contact-search" type="search" placeholder="Search name, phone, company">
+              <select id="contact-tag-filter">
+                <option value="all">All segments</option>
+                <option value="VIP">VIP</option>
+                <option value="Lead">Lead</option>
+                <option value="Wholesale">Wholesale</option>
+              </select>
+            </div>
+            <div class="toolbar-right">
+              <input type="file" id="csv-file-input" accept=".csv" hidden>
+              <button id="btn-upload-csv" class="btn btn-secondary" type="button">
+                <svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="17 8 12 3 7 8"/>
+                  <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+                <span>Import CSV</span>
+              </button>
+              <button id="btn-load-sample-csv" class="btn btn-ghost" type="button">Load sample CSV</button>
+              <span id="contacts-count" class="muted-meta tabular"></span>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Contact</th>
+                  <th>Phone (E.164)</th>
+                  <th>Company</th>
+                  <th>Segment</th>
+                  <th>Opt-in source</th>
+                </tr>
+              </thead>
+              <tbody id="contacts-tbody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="tab-panel" id="tab-templates">
+          <div class="split-grid">
+            <div class="panel-block">
+              <div class="panel-header">
+                <h2>Message templates</h2>
+              </div>
+              <div id="templates-list" class="item-list"></div>
+
+              <div class="editor-form">
+                <div class="field-row">
+                  <div class="field-group">
+                    <label for="tpl-name">Template name</label>
+                    <input id="tpl-name" type="text">
+                  </div>
+                  <div class="field-group">
+                    <label for="tpl-category">Category</label>
+                    <select id="tpl-category">
+                      <option value="MARKETING">MARKETING</option>
+                      <option value="UTILITY">UTILITY</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="field-group">
+                  <label for="tpl-body">Body text</label>
+                  <textarea id="tpl-body" rows="4"></textarea>
+                </div>
+                <div class="field-row">
+                  <div class="field-group">
+                    <label for="tpl-var-1">Sample variable {{1}}</label>
+                    <input id="tpl-var-1" type="text" value="Daniel">
+                  </div>
+                  <div class="field-group">
+                    <label for="tpl-var-2">Sample variable {{2}}</label>
+                    <input id="tpl-var-2" type="text" value="Priority Q2 Plan">
+                  </div>
+                </div>
+                <div class="form-actions">
+                  <button id="btn-save-template" class="btn btn-primary" type="button">Save template</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="preview-pane">
+              <div class="panel-header">
+                <h2>Live WhatsApp preview</h2>
+              </div>
+              <div class="wa-preview-stage">
+                <div class="wa-preview-bubble">
+                  <p id="tpl-preview-text"></p>
+                  <span id="tpl-preview-time" class="wa-preview-time tabular">14:32</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="tab-panel" id="tab-inbox">
+          <div class="inbox-grid">
+            <div id="inbox-threads" class="thread-list"></div>
+            <div class="chat-pane">
+              <div id="inbox-header" class="chat-header"></div>
+              <div id="inbox-messages" class="chat-messages"></div>
+              <form id="inbox-reply-form" class="chat-form">
+                <input id="inbox-reply-input" type="text" placeholder="Write a reply within the 24h customer window">
+                <button type="submit" class="btn btn-primary">Send reply</button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <section class="tab-panel" id="tab-settings">
+          <div class="split-grid">
+            <div class="panel-block">
+              <div class="panel-header">
+                <h2>Cloud API configuration</h2>
+              </div>
+              <div class="settings-form">
+                <div class="field-group">
+                  <label for="cfg-phone-id">Phone number ID</label>
+                  <input id="cfg-phone-id" type="text" value="109482716503912">
+                </div>
+                <div class="field-group">
+                  <label for="cfg-waba-id">WhatsApp Business Account ID</label>
+                  <input id="cfg-waba-id" type="text" value="384920174659201">
+                </div>
+                <div class="field-group">
+                  <label for="cfg-webhook-url">Webhook callback URL</label>
+                  <input id="cfg-webhook-url" type="url" value="https://api.yourbusiness.com/webhooks/whatsapp">
+                </div>
+                <div class="field-group">
+                  <label for="cfg-verify-token">Verify token</label>
+                  <input id="cfg-verify-token" type="text" value="wh_verify_9f82c41a">
+                </div>
+                <div class="form-actions">
+                  <button id="btn-test-webhook" class="btn btn-primary" type="button">Test webhook delivery</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel-block">
+              <div class="panel-header">
+                <h2>Webhook delivery log</h2>
+              </div>
+              <pre id="webhook-log" class="mono-log"></pre>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
